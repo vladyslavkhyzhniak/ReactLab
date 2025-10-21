@@ -14,7 +14,7 @@ function NavBarMenu() {
                         <Nav.Link href="/lab01">Laboratorium 1</Nav.Link>
                         <Nav.Link href="/lab02/2">Laboratorium 2</Nav.Link>
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                            <NavDropdown.Item href="/lab03">Lab03</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
                                 Another action
                             </NavDropdown.Item>
