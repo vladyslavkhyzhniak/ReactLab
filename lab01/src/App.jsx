@@ -1,15 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import ProfileCard from './components/ProfileCard'
-import {people} from '../module-data'
-import ProfileGrid from './components/ProfileGrid';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { Routes, Route } from 'react-router-dom'; 
+
+import RootLayout from './layouts/RootLayout';
+import Home from './pages/home';
+import Lab01 from './pages/lab01';
+import Lab02 from './pages/Lab02';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <ProfileGrid people={people} columns={3} />
+    <Routes>
+      <Route element={<RootLayout />}>
+        <Route path="home" element={<Home />} />
+        <Route path="lab01" element={<Lab01 />} />
+        <Route path="lab02/:id" element={<Lab02 />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 
-export default App
+export default App;
