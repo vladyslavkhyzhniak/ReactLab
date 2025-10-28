@@ -1,10 +1,11 @@
 import { Card, Button, Form } from 'react-bootstrap';
 import RatingBar from './RatingBar';
-
+import { useNavigate } from 'react-router-dom';
 function ProfileNew({ id, name, email, birthDate, phone, rating = 0, checked = false, dispatch }) {
 
-  const handleEdit = () => {
-    alert(`Edytuj osobę: ${name} (ID: ${id})`);
+  const navigate = useNavigate(); 
+ const handleEdit = () => {
+    navigate(`/lab04/edit/${id}`);
   };
 
   return (

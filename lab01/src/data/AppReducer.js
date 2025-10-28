@@ -18,6 +18,13 @@ export default function AppReducer(state, action) {
         }
         return person;
       });
+    case "add":
+      return [...state, { ...action.payload, id: Date.now() }];
+
+    case "edit":
+      return state.map(person =>
+        person.id === action.payload.id ? { ...action.payload } : person
+      );
     default:
       return state;
   }

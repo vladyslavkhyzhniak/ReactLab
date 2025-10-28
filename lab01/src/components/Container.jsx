@@ -1,8 +1,12 @@
-import React, { useReducer } from 'react';
-import AppReducer from '../data/AppReducer';
+import React, { useContext, useReducer } from 'react';
+import AppContext from "../data/AppContext";
+import AppReducer from "../data/AppReducer";
 
-function MyContainer({ element: Element, data }) {
-  const [items, dispatch] = useReducer(AppReducer, data);
+function Container({ element: Element, data }) {
+  const context = useContext(AppContext);
+  const [items, dispatch] = context
+    ? [context.items, context.dispatch]
+    : useReducer(AppReducer, data);
 
   return (
     <div className="container d-flex flex-wrap">
@@ -17,4 +21,4 @@ function MyContainer({ element: Element, data }) {
   );
 }
 
-export default MyContainer;
+export default Container;
