@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import AppContext from "../data/AppContext";
+import useData from "../hooks/UseData";
 import ProfileCard from "./ProfileCard";
 
 function ProfileGrid({ columns }) {
-  const { items } = useContext(AppContext);
+  const items = useData();
   const colClass = `col-md-${Math.floor(18 / columns)}`;
 
   return (

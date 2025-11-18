@@ -8,16 +8,14 @@ import Lab04 from './pages/lab04';
 import NotFound from './pages/NotFound';
 import AddProfileForm from './pages/AddProfileForm';
 import EditProfileForm from './pages/EditProfileForm';
-import AppContext from "./data/AppContext";
-import { useReducer } from "react";
-import AppReducer from "./data/AppReducer";
-import { people } from "../module-data";
+import AppProvider from "./data/AppProvider";
+import Lab05 from './pages/lab05';
+import UserDetails from "./pages/UserDetails";
+import PostComments from "./pages/PostComments";
 
 function App() {
-  const [state, appDispatch] = useReducer(AppReducer, people);
-
   return (
-    <AppContext.Provider value={{ items: state, dispatch: appDispatch }}>
+    <AppProvider>
       <Routes>
         <Route element={<RootLayout />}>
           <Route path="home" element={<Home />} />
@@ -27,10 +25,13 @@ function App() {
           <Route path="lab04" element={<Lab04 />} />
           <Route path="lab04/add" element={<AddProfileForm />} />
           <Route path="lab04/edit/:id" element={<EditProfileForm />} />
+          <Route path="lab05" element={<Lab05 />} />
+          <Route path="/lab5/users/:id" element={<UserDetails />} />
+          <Route path="/lab5/posts/:id/comments" element={<PostComments />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </AppContext.Provider>
+    </AppProvider>
   );
 }
 

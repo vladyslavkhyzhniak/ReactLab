@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
-import AppContext from "../data/AppContext";
+import React from "react";
+import useDispatch from "../hooks/UseDispatch";
 
 function ProfileCard({ id, name, email, birthDate, phone, rating, checked }) {
-  const context = useContext(AppContext);
-  const dispatch = context.dispatch;
+  const dispatch = useDispatch();
 
   return (
     <div className="card h-100 shadow-sm bg-secondary pb-0">
@@ -21,12 +20,14 @@ function ProfileCard({ id, name, email, birthDate, phone, rating, checked }) {
           >
             Oceń
           </button>
+
           <button
             className="btn btn-danger btn-sm"
             onClick={() => dispatch({ type: "delete", id })}
           >
             Usuń
           </button>
+
           <button
             className="btn btn-light btn-sm"
             onClick={() => dispatch({ type: "check", id })}

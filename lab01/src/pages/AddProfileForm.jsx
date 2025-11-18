@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import AppContext from "../data/AppContext";
+import useDispatch from "../hooks/UseDispatch";
 
 export default function AddProfileForm() {
-  const { dispatch } = useContext(AppContext);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -40,6 +40,7 @@ export default function AddProfileForm() {
           <input {...register("phone", { required: true, maxLength: 15 })} />
           {errors.phone && <p className="text-danger">Telefon jest wymagany</p>}
         </div>
+
         <button type="submit">Dodaj</button>
       </form>
     </div>

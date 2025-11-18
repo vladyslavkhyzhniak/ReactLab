@@ -1,10 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useParams, useNavigate } from "react-router-dom";
-import AppContext from "../data/AppContext";
+import useData from "../hooks/UseData";
+import UseDispatch from "../hooks/UseDispatch"; // jeśli Twój hook ma dużą literę U
 
 export default function EditProfileForm() {
-  const { items, dispatch } = useContext(AppContext);
+  const items = useData();
+  const dispatch = UseDispatch();
   const { id } = useParams();
   const navigate = useNavigate();
 

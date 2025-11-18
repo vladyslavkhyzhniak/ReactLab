@@ -1,12 +1,10 @@
-import React, { useContext, useReducer } from 'react';
-import AppContext from "../data/AppContext";
-import AppReducer from "../data/AppReducer";
+import React from 'react';
+import useData from "../hooks/UseData";
+import useDispatch from '../hooks/UseDispatch';
 
 function Container({ element: Element, data }) {
-  const context = useContext(AppContext);
-  const [items, dispatch] = context
-    ? [context.items, context.dispatch]
-    : useReducer(AppReducer, data);
+  const items = useData();
+  const dispatch = useDispatch();
 
   return (
     <div className="container d-flex flex-wrap">
